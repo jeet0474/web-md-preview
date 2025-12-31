@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Viewer</title>
+    <link rel="icon" type="image/x-icon" href="markdown3.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="top-bar" id="topBar">
+            <div class="controls">
+                <button id="openBtn" class="btn-primary">Open MD File</button>
+                <input type="file" id="fileInput" accept=".md,.markdown" multiple style="display: none;">
+            </div>
+            <div class="tabs-container" id="tabsContainer">
+                <!-- Tabs will be added here -->
+            </div>
+        </div>
+        <div class="content-area" id="contentArea">
+            <div id="emptyState" class="empty-state">
+                <p>No file open. Click "Open MD File" to start.</p>
+            </div>
+            <!-- Preview content will be injected here -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
