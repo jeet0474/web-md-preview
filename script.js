@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const openBtn = document.getElementById('openBtn');
+    const minimizeBtn = document.getElementById('minimizeBtn');
+    const topBar = document.getElementById('topBar');
     const fileInput = document.getElementById('fileInput');
     const tabsContainer = document.getElementById('tabsContainer');
     const contentArea = document.getElementById('contentArea');
@@ -16,6 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load session
     restoreSession();
+
+    // Minimize/Expand functionality
+    minimizeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        topBar.classList.add('collapsed');
+    });
+
+    topBar.addEventListener('click', (e) => {
+        if (topBar.classList.contains('collapsed')) {
+            topBar.classList.remove('collapsed');
+        }
+    });
 
     openBtn.addEventListener('click', () => {
         fileInput.click();

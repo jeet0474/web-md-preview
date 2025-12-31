@@ -43,6 +43,29 @@ body {
     border-bottom: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease;
+    min-height: 0; /* Allow shrinking */
+}
+
+.top-bar.collapsed {
+    height: 6px;
+    background: linear-gradient(90deg, #007acc, #00b4cc);
+    cursor: pointer;
+    padding: 0;
+    border-bottom: none;
+    overflow: hidden;
+}
+
+.top-bar.collapsed:hover {
+    height: 10px;
+    filter: brightness(1.2);
+}
+
+.top-bar.collapsed .controls,
+.top-bar.collapsed .tabs-container {
+    opacity: 0;
+    pointer-events: none;
+    display: none; /* Use display none to fully remove from flow when collapsed */
 }
 
 .controls {
@@ -69,6 +92,24 @@ body {
 
 .btn-primary:active {
     background-color: var(--btn-pressed);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 2px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+    min-width: 30px;
+}
+
+.btn-secondary:hover {
+    background-color: #3e3e42;
 }
 
 /* Tabs */
