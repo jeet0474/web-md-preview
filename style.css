@@ -116,7 +116,27 @@ body {
 .tabs-container {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     background-color: var(--top-bar-bg);
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+}
+
+.tabs-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.tabs-container::-webkit-scrollbar-track {
+    background-color: var(--top-bar-bg);
+}
+
+.tabs-container::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 4px;
+}
+
+.tabs-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
 }
 
 .tab {
@@ -125,6 +145,8 @@ body {
     padding: 8px 20px;
     border-right: 1px solid var(--top-bar-bg);
     min-width: 100px;
+    flex-shrink: 0;
+    white-space: nowrap;
     font-family: 'Segoe UI', sans-serif;
     font-size: 13px;
     cursor: pointer;
@@ -163,6 +185,116 @@ body {
 
 /* Content Area */
 .content-area {
+    flex: 1;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    padding: 0;
+    position: relative;
+    display: flex;
+}
+
+/* Explorer Panel */
+.explorer-panel {
+    width: 250px;
+    background-color: #252526;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.explorer-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #1e1e1e;
+    flex-shrink: 0;
+}
+
+.explorer-header h3 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.explorer-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.file-tree-item {
+    padding-left: 0;
+    user-select: none;
+}
+
+.file-tree-item-content {
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 12px;
+    transition: background-color 0.15s;
+}
+
+.file-tree-item-content:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.file-tree-item-content.active {
+    background-color: rgba(0, 122, 204, 0.3);
+    color: #fff;
+}
+
+.tree-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    flex-shrink: 0;
+    font-size: 10px;
+}
+
+.tree-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+    flex-shrink: 0;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.tree-arrow.collapsed::before {
+    content: "▶";
+}
+
+.tree-arrow.expanded::before {
+    content: "▼";
+}
+
+.file-tree-item .file-tree-children {
+    display: none;
+}
+
+.file-tree-item.expanded .file-tree-children {
+    display: block;
+}
+
+.file-tree-children {
+    margin-left: 10px;
+}
+
+/* Markdown Container */
+.markdown-container {
     flex: 1;
     overflow-y: auto;
     background-color: var(--bg-color);

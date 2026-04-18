@@ -13,18 +13,31 @@
         <div class="top-bar" id="topBar">
             <div class="controls">
                 <button id="openBtn" class="btn-primary">Open MD File</button>
+                <button id="openFolderBtn" class="btn-primary" style="margin-left: 8px;">Open Folder</button>
+                <button id="closeFolderBtn" class="btn-secondary" title="Close Folder" style="display: none;">Close Folder</button>
                 <button id="minimizeBtn" class="btn-secondary" title="Minimize Header">-</button>
                 <input type="file" id="fileInput" accept=".md,.markdown" multiple style="display: none;">
+                <input type="file" id="folderInput" webkitdirectory directory multiple style="display: none;">
             </div>
             <div class="tabs-container" id="tabsContainer">
                 <!-- Tabs will be added here -->
             </div>
         </div>
         <div class="content-area" id="contentArea">
-            <div id="emptyState" class="empty-state">
-                <p>No file open. Click "Open MD File" to start.</p>
+            <div class="explorer-panel" id="explorerPanel" style="display: none;">
+                <div class="explorer-header">
+                    <h3 id="folderName">Explorer</h3>
+                </div>
+                <div class="explorer-content" id="explorerContent">
+                    <!-- File tree will be added here -->
+                </div>
             </div>
-            <!-- Preview content will be injected here -->
+            <div class="markdown-container" id="markdownContainer">
+                <div id="emptyState" class="empty-state">
+                    <p>No file open. Click "Open MD File" to start.</p>
+                </div>
+                <!-- Preview content will be injected here -->
+            </div>
         </div>
     </div>
 
