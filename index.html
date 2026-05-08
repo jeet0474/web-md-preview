@@ -12,9 +12,10 @@
     <div class="app-container">
         <div class="top-bar" id="topBar">
             <div class="controls">
+                <button id="clearAllBtn" class="clear-all-btn" title="Clear All" aria-label="Clear All"></button>
                 <button id="openBtn" class="btn-primary">Open MD File</button>
-                <button id="openFolderBtn" class="btn-primary" style="margin-left: 8px;">Open Folder</button>
-                <button id="closeFolderBtn" class="btn-secondary" title="Close Folder" style="display: none;">Close Folder</button>
+                <button id="openFolderBtn" class="btn-primary">Open Folder</button>
+                <button id="closeFolderBtn" class="btn-secondary" title="Close Folder" hidden>Close Folder</button>
                 <button id="minimizeBtn" class="btn-secondary" title="Minimize Header">-</button>
                 <input type="file" id="fileInput" accept=".md,.markdown" multiple style="display: none;">
                 <input type="file" id="folderInput" webkitdirectory directory multiple style="display: none;">
@@ -27,6 +28,7 @@
             <div class="explorer-panel" id="explorerPanel" style="display: none;">
                 <div class="explorer-header">
                     <h3 id="folderName">Explorer</h3>
+                    <button id="syncFolderBtn" class="explorer-sync-btn" title="Sync Folder" aria-label="Sync Folder" hidden>↻</button>
                 </div>
                 <div class="explorer-content" id="explorerContent">
                     <!-- File tree will be added here -->
